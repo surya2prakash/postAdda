@@ -60,7 +60,7 @@ export default function Login() {
  return (
   <div className='min-h-screen w-full bg-gradient-to-br from-indigo-100 via-white to-purple-100 flex flex-col justify-center items-center p-4'>
     
-    {/* 🔥 Logo + Branding Top */}
+   
     <div className='mb-6 text-center'>
       <h1 className='text-4xl font-extrabold text-indigo-600 tracking-tight'>
         PostAdda
@@ -70,7 +70,7 @@ export default function Login() {
       </p>
     </div>
 
-    {/* 🔥 Form Card */}
+    
     <div className='bg-white/80 backdrop-blur-md w-full max-w-md rounded-3xl shadow-2xl p-8 border border-gray-200'>
       
       {/* Header */}
