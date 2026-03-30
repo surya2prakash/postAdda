@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./Pages/Login";
-import SignUp from "./Pages/SignUp";
+import SignIn from "./Pages/SignIn";
 import ProtectedRoute from "./Pages/ProtectedRoute";
 
 import CreatePost from "./Components/CreatePost";
@@ -17,7 +17,7 @@ function App() {
    <>
    <Routes>
         <Route path="/" element={<Login/>} />
-        <Route path="/sign" element={<SignUp/>}/>
+        <Route path="/sign" element={<SignIn/>}/>
         <Route path="/forget" element={<ForgetPassword/>}/>
         <Route element={<ProtectedRoute/>}>
         <Route element={<Main/>}>
