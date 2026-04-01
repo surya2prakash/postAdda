@@ -29,7 +29,7 @@ export default function Main() {
      }
 
     const handleback =(data)=>{
-           console.log(data);
+           
            setCount(prev=> prev+1);
 
            setNewNotification(prev => [data, ...prev]);

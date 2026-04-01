@@ -16,7 +16,9 @@ export default function Login() {
 
      const navigate = useNavigate();
 
-    const {loading,backendCall,setLogin,setDetails} = useContext(AppContext);
+    const {loading,backendCall,setLogin,setDetails,setPostCount,setFollowerCount,
+      setFollowingCount,setPosts,setFollowers,setFollowing
+    } = useContext(AppContext);
 
    let changeHandler =(event)=>{
           const {name,value} = event.target ;
@@ -43,11 +45,18 @@ export default function Login() {
           if(res.success){
                 toast.success(res.message);
              
-                setLogin(true);
-                
-                localStorage.setItem("token",res?.data?.token);
-                setDetails(res?.data?.profile);
-                navigate("/main"); 
+                  setLogin(true);
+                  
+                  localStorage.setItem("token",res?.data?.token);
+                  setPostCount(res?.data?.profile?.totalPosts);
+                  setFollowerCount(res?.data?.profile?.totalFollowers);
+                  setFollowingCount(res?.data?.profile?.totalFollowing);
+                  setPosts(res?.data?.profile?.postId);
+                  console.log(res?.data?.profile?.followerId?.followBy);
+                  setFollowers(res?.data?.profile?.followerId?.followBy);
+                  setFollowing(res?.data?.profile?.followingId?.followingTo);
+                  setDetails(res?.data?.profile);
+                  navigate("/main"); 
           }
     
          
