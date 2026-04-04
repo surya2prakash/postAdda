@@ -31,10 +31,13 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-
+const allowedOrigins = [
+  "http://localhost:3000", 
+  process.env.FRONTEND_URL 
+];
 
 app.use(cors({
-      origin:process.env.FRONTEND_URL,
+      origin:allowedOrigins,
       methods:["POST","GET","PATCH","DELETE"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
@@ -56,13 +59,13 @@ cloudinaryConnect.cloudinaryConnect();
 
 app.use("/api/v1",router);
 
-
+ 
 
 const server = http.createServer(app);
 
 const io = new Server(server,{
     cors:{
-      origin:process.env.FRONTEND_URL,
+      origin:allowedOrigins,
       methods:["POST"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
