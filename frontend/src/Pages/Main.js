@@ -46,7 +46,7 @@ export default function Main() {
 
   
   return (
-    <div className='relative min-h-dvh  min-w-dvw grid grid-rows-[auto_1fr_auto] md:mx-[20%]  '>
+    <div className='relative min-h-dvh overflow-hidden min-w-dvw grid grid-rows-[auto_1fr_auto] md:mx-[20%]  '>
         
            <nav className='sticky top-0 z-10 bg-slate-400 shadow w-full'>
             <Navbar toShowNotification={toggleNotification}  />
