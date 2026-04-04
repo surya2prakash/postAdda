@@ -12,7 +12,7 @@ exports.deletePost = async(req,res) =>{
                  
             const userDetails = req.user ;
 
-            if(postId){
+            if(!postId){
                  return res.status(400).json({
                      success:false,
                      message:"Post Id Missing."
