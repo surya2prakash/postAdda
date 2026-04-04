@@ -204,7 +204,7 @@ export default function Profile() {
            const token = localStorage.getItem("token");
            
            try{
-         const res = await axios.delete(process.env.BACKEND_URL+`/api/v1/delete/${postId}`,{
+         const res = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/v1/delete/${postId}`,{
              headers:{
                Authorization :`Bearer ${token}`
              }

@@ -33,7 +33,7 @@ export default function ForgetPassword() {
        event.preventDefault();
          const dataEmail ={email:currentValue.email}
        try{
-        const res = await axios.post(process.env.BACKEND_URL+"/api/v1/forgetPassword",dataEmail,{
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/forgetPassword`,dataEmail,{
             withCredentials: true
 
         });
@@ -58,7 +58,7 @@ export default function ForgetPassword() {
           const otpData = {otp:currentValue.forgetotp}
 
           try{
-               const res = await axios.post(process.env.BACKEND_URL+"/api/v1/verifyOtp",otpData,{
+               const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/verifyOtp`,otpData,{
                       withCredentials: true
 
                });
@@ -81,7 +81,7 @@ export default function ForgetPassword() {
          const passwordData={password:currentValue.newPassword,confirmPassword:currentValue.confirmPassword}
 
          try{
-            const res = await axios.post(process.env.BACKEND_URL+"/api/v1/setPassword",passwordData,{
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/setPassword`,passwordData,{
                  withCredentials: true
 
             });

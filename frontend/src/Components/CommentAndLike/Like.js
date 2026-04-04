@@ -27,7 +27,7 @@ export default function Like() {
              
            }
     }
-       console.log(likeUserList);
+       
   return (
     <div className="bg-white h-full w-full flex flex-col rounded-t-2xl shadow-2xl">
            <div className='flex justify-between items-center p-4 border-b border-gray-200'>

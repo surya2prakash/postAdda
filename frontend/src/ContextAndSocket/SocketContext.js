@@ -8,7 +8,7 @@ import {io} from 'socket.io-client'
 
   export const SocketContext = createContext(null);
 
-  const baseUrl = process.env.BACKEND_URL  ;
+  const baseUrl = process.env.REACT_APP_BACKEND_URL ;
 
 
 
