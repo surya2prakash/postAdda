@@ -305,22 +305,22 @@ export default function Profile() {
       <div className="relative w-11/12 md:w-3/5 lg:w-3/5 bg-white rounded-xl shadow-lg p-2  ">
         
          
-        <div className="absolute top-8 right-6 z-10 flex items-center gap-4">
+        <div className="absolute top-3 right-3 md:top-6 md:right-6 z-10 flex items-center gap-3 md:gap-4">
           
           {/* Delete Icon*/}
          
          {!isId && (
           <div
             onClick={() => deletePostCall(setectedPost)}
-            className="absolute top-4 left-4 z-10 cursor-pointer"
+            
           >
-            <FaRegTrashAlt className="text-red-500 text-2xl hover:text-red-700 hover:scale-110 transition-all" />
+            <FaRegTrashAlt className="text-red-500 text-xl md:text-2xl cursor-pointer hover:text-red-700 hover:scale-110 transition-all" />
           </div>
         )}
 
           {/* Close Icon*/}
           <div onClick={() => setSelectedPost(null)}>
-            <RiCloseCircleLine className="text-red-500 text-3xl cursor-pointer hover:scale-110 transition-all" />
+            <RiCloseCircleLine className="text-red-500 text-2xl md:text-3xl cursor-pointer hover:scale-110 transition-all" />
           </div>
 
         </div>

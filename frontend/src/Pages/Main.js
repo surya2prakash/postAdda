@@ -46,7 +46,7 @@ export default function Main() {
 
   
   return (
-    <div className='relative h-screen  overflow-hidden grid grid-rows-[auto_1fr_auto] md:mx-[20%]  '>
+    <div className='relative min-h-dvh   grid grid-rows-[auto_1fr_auto] md:mx-[20%]  '>
         
            <nav className='sticky top-0 z-10 bg-slate-400 shadow '>
             <Navbar toShowNotification={toggleNotification}  />
@@ -54,7 +54,7 @@ export default function Main() {
             <main className='min-h-full w-full overflow-y-auto' >
              <Outlet/>
             </main>
-            <footer className=' bg-neutral-400'>
+            <footer className='fixed bottom-0 bg-neutral-400'>
             <FooterSection/>
             </footer>
 
