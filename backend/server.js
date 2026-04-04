@@ -37,7 +37,13 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-      origin:allowedOrigins,
+      origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+},
       methods:["POST","GET","PATCH","DELETE"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
@@ -65,7 +71,12 @@ const server = http.createServer(app);
 
 const io = new Server(server,{
     cors:{
-      origin:allowedOrigins,
+      origin:function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }},
       methods:["POST"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
