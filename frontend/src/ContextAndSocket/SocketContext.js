@@ -68,7 +68,7 @@ import {io} from 'socket.io-client'
    
        
 
-      return <SocketContext.Provider value={{currSocket,count,setCount}} >{children}</SocketContext.Provider>
+      return <SocketContext.Provider value={{currSocket,count,setCount,onlineUser}} >{children}</SocketContext.Provider>
           }
 
 
