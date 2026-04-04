@@ -38,7 +38,7 @@ export default function ForgetPassword() {
 
         });
            
-        console.log(res.data);
+        
         if(res?.data?.success){
                setShowEmailForm(false);
                setShowOtpForm(true);

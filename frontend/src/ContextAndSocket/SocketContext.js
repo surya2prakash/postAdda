@@ -43,7 +43,8 @@ import {io} from 'socket.io-client'
       
         auth:{
                 token
-              }
+              },
+              withCredentials:true
           });
 
           setSocket(socket);

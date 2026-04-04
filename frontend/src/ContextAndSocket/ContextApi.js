@@ -64,15 +64,18 @@ function AppContextProvider({children}){
                   if(!isFormData){
                       headers["Content-Type"]= "application/json"
                   }
-
+               const config ={
+                 headers,
+            withCredentials: true,
+               }
             try{
                 
                  setLoading(true);
                  let response ;
                  if(method === "post"){
-                       response = await  axios.post(`${finalUrl}`,data,{headers});
+                       response = await  axios.post(`${finalUrl}`,data,config);
                  }else{
-                     response = await  axios.get(`${finalUrl}`,{headers});
+                     response = await  axios.get(`${finalUrl}`,config);
                  }
                  
                  

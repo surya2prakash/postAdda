@@ -209,7 +209,8 @@ export default function Profile() {
          const res = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/v1/delete/${postId}`,{
              headers:{
                Authorization :`Bearer ${token}`
-             }
+             },
+             withCredentials:true
          });
              
 
