@@ -143,7 +143,24 @@ io.on("connection",(socket)=>{
                       model:"Profile"
                 });
 
-      const post =    await Post.findByIdAndUpdate(postId,{$inc:{totalComment:1}},{new:true});
+      const post =    await Post.findByIdAndUpdate(postId,{$inc:{totalComment:1}},{new:true}).populate({path:"profileId",
+                                     populate:[{
+                                          path:"followerId",
+                                          populate:{
+                                              path:"followBy",
+                                              model:"Profile"
+                                          }
+                                     },
+                                     {  
+                                        path:"followingId",
+                                        populate:{
+                                            path:"followingTo",
+                                            model:"Profile"
+                                        }
+
+                                     }
+                                    ]
+                                 }).exec();
                 
              const latestComment =  updatedComments.comments[updatedComments.comments.length - 1];
           
@@ -158,11 +175,11 @@ io.on("connection",(socket)=>{
         if (socket?.user?.profileId.toString() !== ownerRoom) {
             io.to(ownerRoom).emit("notification", {
                 message: `New comment on your post`,
-                postId: postId
+                post: post
             });
             
         };
-                 console.log("send ho gya comment");
+               
              }catch(err){
                  console.error(err);
              }
@@ -219,14 +236,14 @@ io.on("connection",(socket)=>{
                            
                            const data ={
                                message:"Like Your Post",
-                               success:true,
+                               success:"like",
                                likedBy:likeUserDetails,
                                post:updatedPost
                            };
 
                            if(userId.toString() !== findPost.profileId.toString()){
                                 io.to(findPost.profileId.toString()).emit("send-like",data);
-                                console.log("send ho gya");
+                               
                            }
                           
 

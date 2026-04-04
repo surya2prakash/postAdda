@@ -35,7 +35,10 @@ const {followingAndfollower} = require("../Controller/FollowingController/getFol
 
 // forget password ------->
 
-const {forgetPassword,tempAuthVerify,verifyOtp,setNewPassword } = require("../Controller/forgetPassword/forgetPassword")
+const {forgetPassword,tempAuthVerify,verifyOtp,setNewPassword } = require("../Controller/forgetPassword/forgetPassword");
+
+// delete post ---->
+const {deletePost} = require("../Controller/PostController/deletePost")
 
 router.post("/sign",signUp);
 
@@ -51,18 +54,18 @@ router.get("/posts",auth,getAllPosts);
 
 router.post("/profile",auth,getUser);
 
-router.post("/like",auth,likePost);
+
 
 router.post("/unlike",auth,unlikePost);
 
 router.post("/follow",auth,followUser);
 
 router.post("/unfollow",auth,unfollowUser);
-
 router.post("/followerlist",auth,followingAndfollower);
 
  router.post("/forgetPassword",forgetPassword);
  router.post("/verifyOtp",tempAuthVerify,verifyOtp);
  router.post("/setPassword",tempAuthVerify,setNewPassword);
-
+ router.delete("/delete/:id",auth,deletePost);
+router.get("/postlike/:id",auth,likePost)
 module.exports = router;
