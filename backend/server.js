@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 app.use(cors({
       origin:"https://postadda.vercel.app" ,
-      methods:["POST","GET","PATCH","DELETE","OPTIONS"],
+   
       allowedHeaders:["Authorization","Content-Type","Accept"],
       credentials:true
 }));
@@ -64,7 +64,7 @@ const server = http.createServer(app);
 const io = new Server(server,{
     cors:{
       origin:"https://postadda.vercel.app" ,
-      methods:["POST","GET"],
+    
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
 }
