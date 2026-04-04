@@ -43,7 +43,7 @@ function AppContextProvider({children}){
               
         
               
-             const BaseUrl ="http://localhost:5000/api/v1" ;
+             const BaseUrl =process.env.BACKEND_URL+"/api/v1" ;
 
              let finalUrl =BaseUrl ;
 

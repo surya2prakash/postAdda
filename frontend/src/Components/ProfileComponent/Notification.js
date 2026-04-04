@@ -12,7 +12,7 @@ export default function Notification({data}) {
         
 
    const {setCount} = useContext(SocketContext);
-   const {setSelectOnPost,setShowFeed,set} = useContext(AppContext);
+   const {setSelectOnPost,setShowFeed} = useContext(AppContext);
 
    const navigate = useNavigate();
  

@@ -8,7 +8,7 @@ import {io} from 'socket.io-client'
 
   export const SocketContext = createContext(null);
 
-  const baseUrl = "http://localhost:5000"  ;
+  const baseUrl = process.env.BACKEND_URL  ;
 
 
 

@@ -125,7 +125,7 @@ export default function Profile() {
             try{
               const userId ={userId :followBackId}
                 const res = await backendCall({data:userId,path:'/follow',method:'post'});
-                     console.log(res);
+                  
                 if(res?.isError){
                      
                      toast.warning(res?.message);
@@ -152,7 +152,7 @@ export default function Profile() {
 
               const userId ={userId:unfollowId}
                 const res = await backendCall({data:userId,path:'/unfollow',method:'post'});
-                 console.log(res);
+                 
                  
                 if(res?.isError){
                      
@@ -198,18 +198,18 @@ export default function Profile() {
      const profileTotalPosts = isId ? tposts : postCount
 
     async function deletePostCall (data){
-         console.log(data);
+         
            const postId =data?._id
 
            const token = localStorage.getItem("token");
            
            try{
-         const res = await axios.delete(`http://localhost:5000/api/v1/delete/${postId}`,{
+         const res = await axios.delete(process.env.BACKEND_URL+`/api/v1/delete/${postId}`,{
              headers:{
                Authorization :`Bearer ${token}`
              }
          });
-             console.log(res?.data);
+             
 
              if(res?.data?.success){
                    setPosts(res?.data?.data);
