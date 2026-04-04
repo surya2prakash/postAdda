@@ -34,11 +34,12 @@ app.use(cookieParser());
 
 
 app.use(cors({
-      origin:process.env.FRONTEND_URL ,
+      origin:"https://postadda.vercel.app" ,
       methods:["POST","GET","PATCH","DELETE","OPTIONS"],
-      allowedHeaders:["Authorization","Content-Type"],
+      allowedHeaders:["Authorization","Content-Type","Accept"],
       credentials:true
 }));
+
 
 
 app.use(fileUpload(
@@ -62,7 +63,7 @@ const server = http.createServer(app);
 
 const io = new Server(server,{
     cors:{
-      origin: process.env.FRONTEND_URL ,
+      origin:"https://postadda.vercel.app" ,
       methods:["POST","GET"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
