@@ -49,13 +49,13 @@ export default function Main() {
   return (
     <div className='relative h-dvh w-full md:w-[60%] md:mx-auto overflow-hidden grid grid-rows-[auto_1fr_auto]'>
         
-           <nav className='z-10 bg-slate-400 shadow w-full '>
+           <nav className='fixed top-0 z-10 bg-slate-400 shadow w-full '>
             <Navbar toShowNotification={toggleNotification}  />
             </nav>
             <main className='overflow-y-auto w-full' >
              <Outlet/>
             </main>
-            <footer className='bg-neutral-400 shadow w-full'>
+            <footer className='fixed bottom-0 bg-neutral-400 shadow w-full'>
             <FooterSection/>
             </footer>
 
