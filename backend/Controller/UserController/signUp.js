@@ -21,13 +21,20 @@ exports.signUp = async(req,res)=>{
               });
         };
 
-        if(!email  || !validator.isEmail(email)){
+        if(!email ){
             // checking two things -> email not found and a email is not valid email
               return res.status(404).json({
                  success:false,
                  message:"Email is missing or Not a valid Email"
               });
         };
+
+        if(!validator.isEmail(email)){
+           return res.status(404).json({
+                 success:false,
+                 message:"Not a valid Email"
+              });
+        }
 
         if(password === ''){
             // if password is empty then ->
@@ -65,8 +72,8 @@ exports.signUp = async(req,res)=>{
 
       // create a user doc and save.  
         const newUser = new User({
-              fullName:fullName,
-              email:email,
+              fullName:fullName.trim().toLowerCase(),
+              email:email.trim().toLowerCase(),
               password:hashPassword
         });
 
