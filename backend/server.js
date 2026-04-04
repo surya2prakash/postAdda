@@ -31,19 +31,10 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-const allowedOrigins = [
-  "http://localhost:3000", 
-  process.env.FRONTEND_URL 
-];
+
 
 app.use(cors({
-      origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-},
+      origin:"https://postadda.vercel.app" ,
       methods:["POST","GET","PATCH","DELETE"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
@@ -71,12 +62,7 @@ const server = http.createServer(app);
 
 const io = new Server(server,{
     cors:{
-      origin:function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }},
+      origin: "https://postadda.vercel.app" ,
       methods:["POST"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
