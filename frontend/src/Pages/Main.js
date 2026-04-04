@@ -54,7 +54,7 @@ export default function Main() {
             <main className='min-h-full w-full overflow-y-auto' >
              <Outlet/>
             </main>
-            <footer className='fixed bottom-0 z-10 bg-neutral-400 shadow w-full'>
+            <footer className=' bg-neutral-400 shadow w-full'>
             <FooterSection/>
             </footer>
 
