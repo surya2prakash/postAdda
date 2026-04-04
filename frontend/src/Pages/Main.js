@@ -46,12 +46,12 @@ export default function Main() {
 
   
   return (
-    <div className='relative min-h-dvh overflow-hidden min-w-dvw grid grid-rows-[auto_1fr_auto] md:mx-[20%]  '>
+    <div className='relative h-dvh overflow-hidden w-full grid grid-rows-[auto_1fr_auto] md:mx-[20%] '>
         
-           <nav className='sticky top-0 z-10 bg-slate-400 shadow w-full'>
+           <nav className='z-10 bg-slate-400 shadow w-full'>
             <Navbar toShowNotification={toggleNotification}  />
             </nav>
-            <main className='min-h-full w-full overflow-y-auto' >
+            <main className='w-full overflow-y-auto' >
              <Outlet/>
             </main>
             <footer className=' bg-neutral-400 shadow w-full'>
