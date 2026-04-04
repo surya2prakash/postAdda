@@ -33,7 +33,7 @@ const uploadFile = async(imageFile,folder,resource_type="auto")=>{
             return result;
 
         }catch(err){
-            console.error(err);
+            return err ;
         }
 }
 
@@ -93,10 +93,11 @@ exports.postCreate = async(req,res) =>{
         // for uploading the image on cloudinary ---->   
             const uploadImage = await  uploadFile(imageFile,"image");
             //  if not then show the problem
-            if(!uploadImage){
+           
+            if(uploadImage.name === 'Error'){
                   return res.status(400).json({
                      success:false,
-                     message:"Problem While Uploading."
+                     message:'File size too large.(Max size 2 MB)'
                   })
             }
 
