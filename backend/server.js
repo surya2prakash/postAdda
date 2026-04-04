@@ -34,7 +34,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-      origin:"http://localhost:3000",
+      origin:process.env.FRONTEND_URL,
       methods:["POST","GET","PATCH","DELETE"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
@@ -62,7 +62,7 @@ const server = http.createServer(app);
 
 const io = new Server(server,{
     cors:{
-      origin:"http://localhost:3000",
+      origin:process.env.FRONTEND_URL,
       methods:["POST"],
       allowedHeaders:["Authorization","Content-Type"],
       credentials:true
@@ -187,7 +187,7 @@ io.on("connection",(socket)=>{
 
         socket.on("post-like",async(data)=>{
                         const currPostId = data ;
-                        console.log("like ke liye recive hua ");
+                        
                   try{
                         
 
