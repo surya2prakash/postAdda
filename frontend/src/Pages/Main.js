@@ -40,21 +40,22 @@ export default function Main() {
         currSocket.on("notification",handleback);
         return ()=>{
             currSocket.off("send-like",handleback);
+            currSocket.off("notification", handleback);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
    },[currSocket]);
 
   
   return (
-    <div className='relative h-dvh overflow-hidden w-full grid grid-rows-[auto_1fr_auto] md:mx-[20%] '>
+    <div className='relative h-dvh w-full md:w-[60%] md:mx-auto overflow-hidden grid grid-rows-[auto_1fr_auto]'>
         
-           <nav className='z-10 bg-slate-400 shadow w-full'>
+           <nav className='z-10 bg-slate-400 shadow w-full '>
             <Navbar toShowNotification={toggleNotification}  />
             </nav>
-            <main className='w-full overflow-y-auto' >
+            <main className='overflow-y-auto w-full' >
              <Outlet/>
             </main>
-            <footer className=' bg-neutral-400 shadow w-full'>
+            <footer className='bg-neutral-400 shadow w-full'>
             <FooterSection/>
             </footer>
 
