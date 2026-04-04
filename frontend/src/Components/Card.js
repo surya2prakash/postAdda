@@ -14,7 +14,7 @@ export default function Card({post,setCommentStatus,setStoreComment}) {
 
       
   
-    const {details,backendCall,setShowComment,setFollowingCount,setFollowing} = useContext(AppContext);
+    const {details,backendCall,setShowComment,setFollowingCount,setFollowing,setPostIdLike ,  setLikePageShow} = useContext(AppContext);
 
     
         
@@ -22,7 +22,7 @@ export default function Card({post,setCommentStatus,setStoreComment}) {
 
   
 
-  const [showLike,setShowLike] = useState(false);
+  
 
   const [liked,setLiked] = useState(false);
   
@@ -44,8 +44,8 @@ export default function Card({post,setCommentStatus,setStoreComment}) {
   };
 
   function clickLikeHandler(){
-        setShowLike(prev => !prev);
-        
+        setPostIdLike(post?._id);
+        setLikePageShow(true);
          }
 
 
@@ -141,13 +141,13 @@ async function fetchUnlike(){
         <div className='max-h-14 p-1 flex justify-between items-center border-b-2'>
 
             <div className=' flex justify-center items-center' onClick={profileClickHandler}> 
-
+                {/* PROFILE IMAGE */}
               <div className='m-1 p-1 border-2 rounded-full shadow-[inset_0_2px_6px_rgba(0,0,0,0.2)]'>
 
                   <img src={post?.profileId?.profileImage} alt='no' className='h-9 rounded-full cursor-pointer' />  
          
                </div>
-      
+      {/* USER NAME */}
       <div className='ml-2 font-normal text-lg '>
          {
             post?.profileId?.fullName
@@ -156,7 +156,7 @@ async function fetchUnlike(){
       </div>
 
       </div> 
-
+        {/* FOLLOW BUTTON */}
       <div className='ml-auto mr-4'>
              {
                showFollowBtn && <button onClick={followClickHandler} className='border-[2px] pt-1 pb-1 pl-3 pr-3 rounded-md bg-blue-400 hover:bg-blue-500 hover:text-white transition duration-200' >Follow</button>
@@ -164,36 +164,36 @@ async function fetchUnlike(){
       </div>
 
       </div>
-
+        {/* POST IMAGE */}
       <div className='max-h-[470px] bg-black flex justify-center items-center overflow-hidden'>
            {
             post?.postImage ?(<img src={post?.postImage} alt="noimage" className='w-full max-h-[470px] object-contain'/>):(<div></div>) 
            }    
       </div>
-
+          {/* CAPTION */}
       <div className='min-h-0 m-2 border-b-2'>
            {post?.caption}
       </div>
-
+            {/* LIKE AND UN-LIKE ICONS */}
       <div className='flex justify-between items-center m-1'>
         
              <div className='flex justify-center items-center gap-1'>
-            
+             
               <div onClick={handleLike}className='ml-4'>
                         {
                            liked ? (<FcLike className='cursor-pointer text-2xl'/>) : (<FaRegHeart className='cursor-pointer text-2xl '/>)
                          } 
             
                  </div>
-
+            {/* LIKE COUNT */}
             <div onClick={clickLikeHandler}> {likeCount}</div>
 
             </div>
           
         <div className=' flex justify-center items-center gap-1 mr-4'>  
-
+              {/* COMMENT ICON */}
         <div onClick={clickCommentHandler} ><FaRegComment className='cursor-pointer text-2xl' /></div>
-
+          {/* TOTAL COMMENT */}
         <div className=''>{post.totalComment}</div>
 
         </div> 
@@ -202,11 +202,7 @@ async function fetchUnlike(){
 
       </div>
       
-      <div className=''>
-        {
-          showLike && <Like postId={post._id}/>
-        }
-      </div>
+      
 
 
     </div>

@@ -6,7 +6,7 @@ import { AppContext } from '../ContextAndSocket/ContextApi';
 
 function FooterSection() {
     
-   const {details} = useContext(AppContext);
+   const {details,setShowComment,setLikePageShow} = useContext(AppContext);
 
    
     
@@ -16,16 +16,16 @@ return (
          
          {/* Home Icon */}
          <Link to={"/main"} className='p-2 text-gray-700 hover:text-blue-500 transition-colors'>
-             <AiOutlineHome className='text-3xl' />
+             <AiOutlineHome className='text-3xl'  />
          </Link> 
 
-         {/* Add Post Button - Simple and flat */}
-         <Link to="/createpost" className='p-2 text-gray-700 hover:text-blue-500 transition-colors'>
+         {/* Add Post Button  */}
+         <Link to="/createpost" className='p-2 text-gray-700 hover:text-blue-500 transition-colors' onClick={()=>{setShowComment(false);setLikePageShow(false) }}>
              <IoMdAdd className='text-3xl'/>
          </Link>              
          
          {/* Profile Image */}
-         <Link to="/profile" className='p-2'>
+         <Link to="/profile" className='p-2' onClick={()=>{setShowComment(false) ; setLikePageShow(false)}}>
              <div className='h-9 w-9 rounded-full overflow-hidden border border-gray-300'>
                  {details?.profileImage ? (
                      <img 

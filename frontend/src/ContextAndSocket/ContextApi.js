@@ -31,12 +31,17 @@ function AppContextProvider({children}){
     const[followers,setFollowers] = useState([]);
     // followings ---->
          const[followings,setFollowing]= useState([]);
-     
+        // post like usersList --->
+       const [likeUserList,setLikeUserList] = useState([]);
+        //like list show --->
+        const [likePageShow,setLikePageShow] = useState(false);  
+       //postId for like fetch --->
+       const [postIdLike,setPostIdLike] = useState("");
 
 
     const backendCall = async({data=null,path=null,method=null}) =>{
               
-        console.log("data->",data,"path->",path,"method->",method);
+        
               
              const BaseUrl ="http://localhost:5000/api/v1" ;
 
@@ -61,6 +66,7 @@ function AppContextProvider({children}){
                   }
 
             try{
+                
                  setLoading(true);
                  let response ;
                  if(method === "post"){
@@ -114,7 +120,13 @@ function AppContextProvider({children}){
           followers,
           setFollowers,
           followings,
-          setFollowing
+          setFollowing,
+          likePageShow,
+          setLikePageShow,
+          likeUserList,
+          setLikeUserList,
+          postIdLike,
+          setPostIdLike
           
     }
 

@@ -75,9 +75,11 @@ function CreatePost(){
 
     return(
         <div className=' h-full flex  justify-center items-center overflow-hidden relative'>
-       
+           {/* POST CREATE FORM */}
         <form onSubmit={submitHandler} className='flex  flex-col justify-center items-center gap-3 lg:flex-row'>
+          {/* IMAGE INPUT*/}
             <input type='file' ref={myRef} className='ml-28 lg:ml-0' />
+            {/* CAPTION INPUT */}
             <input type='text' placeholder='caption' name='caption' value={currentCaption} onChange={changeHandler} className='border-[2px] rounded-lg border-blue-300 outline-none p-2' />
          <button className='pt-1 pb-1 pl-2 pr-2 border-[2px] rounded-md bg-blue-400  hover:bg-blue-500 transition duration-200 hover:text-white'>Upload</button>
                 

@@ -33,13 +33,13 @@ export default function SignIn() {
               
             const res = await backendCall({data:inputValue,path:"/sign",method:"post"});
 
-          
+              console.log(res);
 
             if(res?.isError){
                   toast.error(res?.message);
                   return;
             }
-            if(res.ok){
+            if(res?.success){
                 toast.success(res?.message);
                 navigate("/");
             }

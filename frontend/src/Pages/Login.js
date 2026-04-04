@@ -34,7 +34,7 @@ export default function Login() {
          const res = await  backendCall({data:inputValue,path:"/login",method:"post"});
 
 
-         console.log(res);
+        
 
          if(res?.isError){
               toast.error(res?.message);

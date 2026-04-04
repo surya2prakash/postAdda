@@ -4,6 +4,7 @@ import Card from './Card';
 import { toast } from 'react-toastify';
 import Comment from './CommentAndLike/Comment';
 import Loader from './Loader';
+import Like from './CommentAndLike/Like';
 
 
 
@@ -12,7 +13,7 @@ export default function MainSection() {
 
        const {loading,backendCall} = useContext(AppContext);
        const [feedPost ,setFeedPost] = useState([]);
-       const {showFeed,selectOnPost,setShowFeed,showComment,setShowComment} = useContext(AppContext);
+       const {showFeed,selectOnPost,setShowFeed,showComment,setShowComment,likePageShow} = useContext(AppContext);
       
        const [storeComment,setCurrComment] = useState(null);
 
@@ -102,7 +103,7 @@ export default function MainSection() {
        return <Loader/>
      }
   
-    
+   
 
   return (
     <div className='relative h-full w-full overflow-hidden'>
@@ -141,17 +142,23 @@ export default function MainSection() {
             
           
             {
-               !showFeed &&  selectOnPost && (<div className="h-full m-2 "> <button onClick={()=>{setShowFeed(true)}} className="border-2 p-2 rounded-md bg-blue-500 hover:bg-blue-600 cursor-pointer text-white">Back to Feed</button> <Card post={selectOnPost} setCommentStatus={setShowComment} setStoreComment={setCurrComment} /> </div>)
+             !showComment  &&  selectOnPost && (<div className="h-full m-2 "> <button onClick={()=>{setShowFeed(true)}} className="border-2 p-2 rounded-md bg-blue-500 hover:bg-blue-600 cursor-pointer text-white">Back to Feed</button> <Card post={selectOnPost} setCommentStatus={setShowComment} setStoreComment={setCurrComment} /> </div>)
             }
              
             
          </div>   
            {
-           showComment && (
-                <div className=" absolute inset-0 z-50 flex flex-col h-full w-full bg-white shadow-2xl overflow-y-auto sm:rounded-t-2xl animate-fade-in">
+            showComment && (
+                <div className=" absolute inset-0 z-50 flex flex-col h-full w-full bg-white shadow-2xl overflow-y-auto sm:rounded-t-2xl animate-fade-in mt-1">
                           <Comment postComment={storeComment}/>
                             </div>
                        )
+                }
+
+                {
+                  likePageShow &&  <div className=" absolute inset-0 z-50 flex flex-col h-full w-full bg-white shadow-2xl overflow-y-auto sm:rounded-t-2xl animate-fade-in mt-1">
+                          <Like/>
+                            </div>
                 }
     </div>
   )
