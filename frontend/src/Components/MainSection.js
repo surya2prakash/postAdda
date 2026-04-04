@@ -107,7 +107,7 @@ export default function MainSection() {
    
 
   return (
-    <div className='relative h-full w-full overflow-hidden'>
+    <div className='relative h-full w-full overflow-y-auto'>
     <div className={`h-full w-full  ${showComment ? "overflow-hidden" : "overflow-y-auto"} scroll-smooth`} >
        
             {
