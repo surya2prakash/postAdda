@@ -41,6 +41,7 @@ export default function Main() {
         return ()=>{
             currSocket.off("send-like",handleback);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
    },[currSocket]);
 
   

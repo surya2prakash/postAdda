@@ -30,6 +30,7 @@ export default function MainSection() {
     
         useEffect(()=>{
          fetchData();
+         // eslint-disable-next-line react-hooks/exhaustive-deps
         },[page]);
 
      

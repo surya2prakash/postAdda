@@ -51,7 +51,7 @@ export default function Comment({postComment}) {
        currSocket.emit("join-comment",postId);
 
        const handleNewComment =(data)=>{
-               console.log("data->",data);
+               
               setShowComments(prev =>[...prev,...data?.commentDetails]);
        }
 
@@ -69,6 +69,7 @@ export default function Comment({postComment}) {
              currSocket.off("send-newComment", handleNewComment);
              currSocket.off("notification", handleNotification);
        }
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currSocket,postId]);
 
    async function submitHandler(event) {

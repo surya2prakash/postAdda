@@ -13,8 +13,9 @@ export default function Like() {
       if(!post){
           return;
       }
-      console.log("fir bhi chla");
+     
          fetchLikeUser();
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[post])
       
     async function fetchLikeUser(){

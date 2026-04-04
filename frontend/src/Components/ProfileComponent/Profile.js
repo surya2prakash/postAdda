@@ -80,6 +80,7 @@ export default function Profile() {
               }
 
               fetchUserProfile();
+              // eslint-disable-next-line react-hooks/exhaustive-deps
     },[id]);
 
   
@@ -106,6 +107,7 @@ export default function Profile() {
     }
       
     unfollowBackCall();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[unfollowId]);
 
   
@@ -117,7 +119,7 @@ export default function Profile() {
          }
       
         followBack();
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   },[followBackId]);
 
   // FOLLOW BACKEND CALL --->

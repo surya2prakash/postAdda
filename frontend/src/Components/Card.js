@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 
-import Like from './CommentAndLike/Like';
+
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegComment } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
@@ -99,7 +99,7 @@ export default function Card({post,setCommentStatus,setStoreComment}) {
 
 async function fetchUnlike(){
        try{
-           const res = await backendCall({data:likePost,path:"/unlike",method:"post"})
+            await backendCall({data:likePost,path:"/unlike",method:"post"})
            
        }catch(err){
            console.error(err);
