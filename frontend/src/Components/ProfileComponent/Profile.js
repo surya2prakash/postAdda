@@ -302,10 +302,10 @@ export default function Profile() {
   setectedPost && (
     <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/40  ">
       {/* Container Width Thodi Badi Ki Hai: w-11/12 md:w-3/5 lg:w-2/5 */}
-      <div className="relative w-11/12 md:w-3/5 lg:w-3/5 bg-white rounded-xl shadow-lg p-2  ">
+      <div className="relative w-9/12 md:w-3/5 lg:w-3/5 bg-white rounded-xl shadow-lg p-2  ">
         
          
-        <div className="absolute top-3 right-3 md:top-6 md:right-6 z-10 flex items-center gap-3 md:gap-4">
+        <div className="absolute top-6 right-5 md:top-6 md:right-6 z-10 flex items-center gap-3 md:gap-4">
           
           {/* Delete Icon*/}
          

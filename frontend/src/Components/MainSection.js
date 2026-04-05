@@ -107,8 +107,8 @@ export default function MainSection() {
    
 
   return (
-    <div className='relative h-full w-full overflow-y-auto'>
-    <div className={`h-full w-full  ${showComment ? "overflow-hidden" : "overflow-y-auto"} scroll-smooth`} >
+    <div className='relative h-full min-h-0 overflow-hidden'>
+    <div className={`h-full w-full min-h-0  ${showComment ? "overflow-hidden" : "overflow-y-auto"} scroll-smooth`} >
        
             {
               showFeed && ( feedPost.length === 0 ? (<p className=' text-center '>No post found</p>) :(
